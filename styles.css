@@ -1,0 +1,271 @@
+/* Lord of the Rings Wedding Invitation Styles */
+
+:root {
+    --gold: #d4af37;
+    --dark-gold: #b8860b;
+    --forest-green: #1e3a2b;
+    --parchment: #f5e9d3;
+    --dark-brown: #3a2a18;
+    --shadow: rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--forest-green);
+    color: var(--parchment);
+    line-height: 1.6;
+    background-image: url('https://i.imgur.com/JYgGJoJ.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px var(--shadow);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Ring Animation */
+.ring-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.ring {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 15px solid var(--gold);
+    box-shadow: 0 0 20px var(--gold), inset 0 0 20px var(--gold);
+    animation: glow 3s infinite alternate;
+    position: relative;
+}
+
+.ring::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    border: 2px solid var(--dark-gold);
+    opacity: 0.7;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px var(--gold), inset 0 0 10px var(--gold);
+    }
+    to {
+        box-shadow: 0 0 25px var(--gold), inset 0 0 25px var(--gold);
+    }
+}
+
+/* Elvish Text */
+.elvish {
+    font-style: italic;
+    color: var(--gold);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+/* Sections */
+header, section, footer {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    border: 1px solid var(--dark-gold);
+}
+
+.invitation {
+    text-align: center;
+}
+
+.names {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin: 1.5rem 0;
+    text-shadow: 2px 2px 4px var(--shadow);
+}
+
+.date, .location, .time {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.detail-box {
+    padding: 1.5rem;
+    background-color: rgba(30, 58, 43, 0.7);
+    border-radius: 8px;
+    border: 1px solid var(--dark-gold);
+    transition: transform 0.3s ease;
+}
+
+.detail-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.rsvp {
+    text-align: center;
+}
+
+.rsvp-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--dark-gold);
+    color: var(--parchment);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--gold);
+}
+
+.rsvp-button:hover {
+    background-color: var(--gold);
+    color: var(--dark-brown);
+    transform: scale(1.05);
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    max-width: 80%;
+    margin: 0 auto 1.5rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.7rem;
+    }
+    
+    .names {
+        font-size: 1.8rem;
+    }
+    
+    .ring {
+        width: 120px;
+        height: 120px;
+        border-width: 12px;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    header, section, footer {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.7rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .names {
+        font-size: 1.6rem;
+    }
+    
+    .ring {
+        width: 100px;
+        height: 100px;
+        border-width: 10px;
+    }
+    
+    .elvish {
+        font-size: 1rem;
+    }
+    
+    .detail-box {
+        padding: 1rem;
+    }
+    
+    .rsvp-button {
+        padding: 0.8rem 2rem;
+    }
+}
